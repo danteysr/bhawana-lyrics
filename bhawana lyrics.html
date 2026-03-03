@@ -1,0 +1,229 @@
+
+Anush Joseph <anushjoseph23me@gmail.com>
+00:26 (0 minutes ago)
+to S24
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhawana — Lyrics</title>
+  <meta name="description" content="A clean, shareable lyrics webpage with English meaning." />
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:#11182a;
+      --text:#e7ecff;
+      --muted:#aab3d6;
+      --accent:#8bd3ff;
+      --accent2:#b8ffcc;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius:18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(139,211,255,.18), transparent 55%),
+                  radial-gradient(900px 600px at 85% 15%, rgba(184,255,204,.14), transparent 55%),
+                  radial-gradient(900px 700px at 55% 95%, rgba(139,211,255,.10), transparent 60%),
+                  var(--bg);
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 60px}header{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  padding:10px 0 18px;
+}
+.title{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+h1{
+  margin:0;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing:-0.02em;
+  line-height:1.05;
+}
+.subtitle{color:var(--muted);max-width:70ch;line-height:1.45}
+
+.controls{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-end;
+}
+
+.btn{
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  transition:.18s ease;
+  box-shadow:none;
+  user-select:none;
+}
+.btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.06)}
+.btn:active{transform:translateY(0px)}
+.btn.primary{border-color:rgba(139,211,255,.35);background:rgba(139,211,255,.10)}
+
+.chip{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--muted);
+  border:1px dashed rgba(255,255,255,.16);
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(0,0,0,.14);
+}
+
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start}
+@media (max-width: 880px){.grid{grid-template-columns:1fr}}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.cardHead{
+  padding:16px 16px 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  background:rgba(17,24,42,.55);
+}
+
+.cardHead h2{margin:0;font-size:16px;letter-spacing:.2px}
+.cardBody{padding:16px}
+
+.lyrics{
+  font-size:16px;
+  line-height:1.85;
+  color:var(--text);
+  white-space:pre-wrap;
+}
+.lyrics .line{display:block;padding:6px 10px;border-radius:12px}
+.lyrics .line:hover{background:rgba(255,255,255,.05)}
+
+.muted{color:var(--muted)}
+
+.note{
+  border:1px solid rgba(139,211,255,.22);
+  background:rgba(139,211,255,.08);
+  padding:12px 12px;
+  border-radius:16px;
+  color:var(--text);
+  line-height:1.55;
+}
+
+.meaning{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  line-height:1.6;
+  color:var(--text);
+}
+
+.toggleRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+.switch{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  cursor:pointer;
+  user-select:none;
+}
+.switch input{accent-color:var(--accent)}
+
+.toast{
+  position:fixed;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(17,24,42,.92);
+  border:1px solid rgba(255,255,255,.14);
+  padding:10px 12px;
+  border-radius:999px;
+  color:var(--text);
+  font-size:13px;
+  box-shadow: var(--shadow);
+  opacity:0;
+  pointer-events:none;
+  transition:.22s ease;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-2px)}
+
+footer{margin-top:18px;color:var(--muted);font-size:12px;line-height:1.5}
+.small{font-size:12px}
+.kbd{font-family:var(--mono);font-size:12px;border:1px solid rgba(255,255,255,.14);padding:2px 6px;border-radius:8px;background:rgba(0,0,0,.18)}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Bhawana</h1>
+        <div class="subtitle">A simple, shareable lyrics page (Romanized Nepali + English meaning). Edit the text in the HTML to add more verses.</div>
+        <div class="toggleRow">
+          <span class="chip">Tip: click a line to copy it</span>
+          <span class="chip">Shortcut: <span class="kbd">Ctrl</span> + <span class="kbd">K</span> to copy all</span>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn primary" id="copyAllBtn" type="button">📋 Copy all</button>
+        <button class="btn" id="copyEnglishBtn" type="button">🗣️ Copy English only</button>
+        <button class="btn" id="printBtn" type="button">🖨️ Print</button>
+      </div>
+    </header><div class="grid">
+  <section class="card" aria-label="Lyrics">
+    <div class="cardHead">
+      <h2>Lyrics (Romanized)</h2>
+      <label class="switch" title="Show or hide the English meaning under each section">
+        <input id="toggleEnglish" type="checkbox" checked />
+        <span class="small">Show English meaning</span>
+      </label>
+    </div>
+    <div class="cardBody">
+      <div class="lyrics" id="lyrics">
+        <span class="line" data-copy="Udhi udhi rahancha yo mana khula panchi jhai aakasha ma">Udhi udhi rahancha yo mana khula panchi jhai aakasha ma</span>
+        <span class="line" data-copy="Khai timrai yada le po ho ki mero mana aaja hoho ramaucha">Khai timrai yada le po ho ki mero mana aaja hoho ramaucha</span>
+        <span class="line" data-copy="Timro hata samayera lanchu tada hamro pira">Timro hata samayera lanchu tada hamro pira…</span>
+        <span class="line" data-copy="Timrai hu ma, timrai nai hunechu aaja lai matra haina sadai bhari lai">Timrai hu ma, timrai nai hunechu aaja lai matra haina sadai bhari lai…</span>
+        <span class="line" data-copy="Timrai thaye, timro nai rahanechu aaila lai matra haina juni bhari lai">Timrai thaye, timro nai rahanechu aaila lai matra haina juni bhari lai…</span>
+        <span class="line" data-copy="Sundai chau hola ni aaja, timrai lagi lekhdaichu dhun">Sundai chau hola ni aaja, timrai lagi lekhdaichu dhun…</span>
+        <span class="line" data-copy="Sabdha haru ni lai jodera bayan gardai chu bhawana">Sabdha haru ni lai jodera bayan gardai chu bhawana</span>
+      </div>
+
+      <div class="note" id="englishBlock" style="margin-top:14px;">
+        <div style="font-weight:650; margin-bottom:6px;">English meaning (smooth translation)</div>
+        <div class="muted" id="englishText">
+          My heart keeps soaring freely like a bird in the sky. Maybe it’s because of your memories, but today my heart feels joyful.
+          Holding your hand, I’ll take our pain far away. I am yours— not just for today, but forever; not just for this moment, but for a lifetime.
+          You’re probably listening, right? Today I’m writing this melody just for you— joining words together to express my feelings.
